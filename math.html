@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics and Consumer Safety</title>
+    <link rel="stylesheet" href="math.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loading-icon"></div>
+        <p id="loading-quote"></p>
+    </div>
+    <div class="container">
+        <h1>Mathematics and Consumer Safety</h1>
+        <p>Understanding the probability of products having issues is crucial for ensuring consumer safety. By analyzing data, we can estimate the likelihood of encountering harmful ingredients or faults in various products across different industries. This helps consumers make informed decisions and promotes better regulation of products.</p>
+
+        <h2>Probability of Issues in Different Industries</h2>
+        <p>The graph below represents the probability of finding harmful ingredients or faults in different types of products based on recent studies.</p>
+
+        <canvas id="probabilityChart"></canvas>
+
+        <a href="index.html" class="back-button">Back</a>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('probabilityChart').getContext('2d');
+        const probabilityChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Beauty Products', 'Cooking Ingredients', 'Electronics', 'Clothing', 'Automotive', 'Toys', 'Household Products'],
+                datasets: [
+                    {
+                        label: 'Probability of Harmful Ingredients (%)',
+                        data: [15, 10, 5, 8, 12, 7, 9],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Probability of Faults (%)',
+                        data: [5, 3, 25, 10, 18, 12, 14],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#ffffff'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#ffffff',
+                            beginAtZero: true,
+                            max: 30
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffffff'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
